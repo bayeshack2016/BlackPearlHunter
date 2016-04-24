@@ -152,7 +152,7 @@ shinyServer(function(input, output) {
     # })
     
     ts_data <- ts(model_data$deaths * 1000000 / model_data$population)
-    ts_model <- HoltWinters(ts_data, beta=FALSE, gamma=FALSE)
+    ts_model <- HoltWinters(ts_data, gamma=FALSE)
     
     new_model <- forecast.HoltWinters(ts_model, h=input$n_pred)
     
