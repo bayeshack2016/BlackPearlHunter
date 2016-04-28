@@ -2,8 +2,9 @@ name: BlackPearlHunter
 account: ranand
 server: shinyapps.io
 appId: 97448
-bundleId: 432081
+bundleId: 437229
 url: https://ranand.shinyapps.io/BlackPearlHunter/
-when: 1461517315.62192
+when: 1461881225.38408
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: dhhs_-_black_pearl_hunter.pdf|README.md
