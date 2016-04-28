@@ -1,5 +1,6 @@
 #setwd('/Users/ranand/Desktop/bayeshack/opioid/src/BlackPearlHunter/')
 
+library(plotly)
 library(maps)
 library(zipcode)
 library(mapproj)
@@ -80,16 +81,17 @@ shinyServer(function(input, output) {
   #   output$aggData <- agg_data()
   # })
   
-  output$plot1 <- renderPlot({
+  output$plot1 <- renderPlotly({
     p <- ggplot(data = agg_data(), aes(x = year, y=deathPerMillion, group=agg_column))
     p <- p + geom_line(aes(color = agg_column))
-    p <- p + theme(legend.position="none") + ylab("Death Per Million")
+    #p <- p + theme(legend.position="none") + 
+    p <- p + ylab("Death Per Million")
     p <- p + theme(axis.text.x = element_text(angle = 45))
-    p <- p + geom_dl(aes(label=agg_column), 
-                     method=list(dl.trans(x=x+0.01), "last.qp", cex=0.6, rot=45))
-    p <- p + guides(color=TRUE)
-    plot(p) #+ scale_x_discrete(expand=c(0,1))
-  
+    # p <- p + geom_dl(aes(label=agg_column),method=list(dl.trans(x=x+0.01), "last.qp", cex=0.6, rot=45))
+    #p <- p + guides(color=TRUE)
+    #plot(p) #+ scale_x_discrete(expand=c(0,1))
+    gg <- ggplotly(p)
+    gg
   })
   
   forecast_data <- reactive({

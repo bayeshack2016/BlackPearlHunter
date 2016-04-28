@@ -1,5 +1,6 @@
 #setwd('/Users/ranand/Desktop/bayeshack/opioid/src/BlackPearlHunter/')
 
+library(plotly)
 library(ggplot2)
 library(data.table)
 library(directlabels)
@@ -71,7 +72,7 @@ shinyUI(navbarPage("Black Pearl Hunter",
                               
                               mainPanel(
                                 width = 9,
-                                plotOutput('plot1'),
+                                plotlyOutput('plot1'),
                                 tableOutput('sampleData'),
                                 tableOutput('aggData')
                               )
